@@ -1,10 +1,10 @@
 from flask import Flask, render_template, make_response, request, redirect
 from flask_login import current_user, login_required, logout_user
 from flask_wtf.csrf import CSRFProtect
-
-from auth import register, login_manager, login, get_user
+from auth import register, login_manager, login
 from db import db
-from memorial import create_memorial
+from memorial import create_memorial, get_memorials, get_images, get_latest_deceased,get_latest_memorials_with_images,get_memorials_by_user,get_images_by_user
+from message import create_message, get_messages
 
 
 app = Flask(__name__)
@@ -38,16 +38,18 @@ def index():
     else:
         return redirect("/memorial")
 
-
 @app.route("/memorial")
 def memorial():
-    return make_response(render_template("memorial.html"))
-
+    images = get_latest_memorials_with_images()
+    memorials = get_memorials()
+    latest_deceased= get_latest_deceased()
+    return make_response(render_template("memorial.html", memorials=memorials,images=images,latest_deceased=latest_deceased))
 
 @app.route("/memorial/create", methods=["GET", "POST"])
 def memorial_create():
-    if request.method == "POST" and create_memorial():
-        return make_response(redirect("/heaven"))
+    if request.method == "POST":
+        if create_memorial():
+            return make_response(redirect("/"))
     return make_response(render_template("create_memorial.html"))
 
 
@@ -56,9 +58,13 @@ def welcome():
     return make_response(render_template("welcome.html"))
 
 
-@app.route("/forums")
-def forums():
-    return make_response(render_template("forums.html"))
+@app.route("/message", methods=["GET", "POST"])
+@login_required
+def message():
+    if request.method == "POST":
+        create_message()
+    messages = get_messages()
+    return make_response(render_template("message.html", messages=messages))
 
 
 @app.route("/features")
@@ -68,7 +74,8 @@ def features():
 
 @app.route("/heaven")
 def heaven():
-    return make_response(render_template("heaven.html"))
+    memorials = get_memorials()
+    return make_response(render_template("heaven.html", memorials=memorials))
 
 
 @app.route("/faq")
@@ -79,6 +86,14 @@ def faq():
 @app.route("/price")
 def price():
     return make_response(render_template("price.html"))
+
+@app.route('/profile')
+def profile():
+    user_id = current_user.id
+    user_memorials = get_memorials_by_user(user_id)
+    user_images = get_images_by_user(user_id)
+    return render_template('profile.html', user_memorials=user_memorials, user_images=user_images)
+
 
 
 @app.route("/register", methods=["GET", "POST"])
