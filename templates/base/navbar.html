@@ -7,8 +7,8 @@
         {% if not current_user.is_authenticated %}
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a href="../memorial" class="nav-link px-2 link-secondary">HOME</a></li>
-          <li><a href="../forums" class="nav-link px-2 link-body-emphasis">Forums</a></li>
-          <li><a href="../heaven" class="nav-link px-2 link-body-emphasis">Heaven</a></li>
+          <li><a href="../message" class="nav-link px-2 link-body-emphasis">Message</a></li>
+          <li><a href="../heaven#main-content" class="nav-link px-2 link-body-emphasis">Heaven</a></li>
           <li><a href="../price" class="nav-link px-2 link-body-emphasis">Pricing</a></li>
           <li><a href="../features" class="nav-link px-2 link-body-emphasis">Features</a></li>
           <li><a href="../faq" class="nav-link px-2 link-body-emphasis">FAQs</a></li>
@@ -16,11 +16,9 @@
         {% else %}
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a href="../welcome" class="nav-link px-2 link-secondary">HOME</a></li>
-          <li><a href="../forums" class="nav-link px-2 link-body-emphasis">Forums</a></li>
-          <li><a href="../heaven" class="nav-link px-2 link-body-emphasis">Heaven</a></li>
+          <li><a href="../message" class="nav-link px-2 link-body-emphasis">Message</a></li>
+          <li><a href="../heaven#main-content" class="nav-link px-2 link-body-emphasis">Heaven</a></li>
           <li><a href="../price" class="nav-link px-2 link-body-emphasis">Pricing</a></li>
-          <li><a href="../create_memorial" class="nav-link px-2 link-body-emphasis">Create Memorial</a></li>
-          <li><a href="../faq" class="nav-link px-2 link-body-emphasis">FAQs</a></li>
         </ul>
         {% endif %}
         
@@ -35,8 +33,8 @@
           <a class="bi bi-person-circle text-reset" data-bs-toggle="dropdown" aria-expanded="false"></a>
           <a href="#" class="bi bi-caret-down-fill text-reset" id="triangle-icon" data-bs-toggle="dropdown" aria-expanded="false"></a>
           <ul class="dropdown-menu text-small">
-            <li><a class="dropdown-item" href="#">Wang Dan</a></li>
-            <li><a class="dropdown-item" href="#">Setting</a></li>
+            <li><a class="dropdown-item" href="../memorial/create">Create Memorial</a></li>
+            <li><a class="dropdown-item" href="../profile">Profile</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="/logout">Sign out</a></li>
           </ul>
