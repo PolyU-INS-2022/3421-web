@@ -1,0 +1,56 @@
+{% extends "base/base.html" %}
+{% block css %}
+<link href="{{ url_for('static', filename='css/create_memorial/style.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+{% block main %}
+<main>
+    <div class="container">
+      <h1 class="my-5 text-center">Create a Memorial</h1>
+      <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-10">
+          <form method="post" enctype="multipart/form-data">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="name" name="name" placeholder="Enter deceased name" required>
+              <label for="deceasedName">Deceased Name</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" name="epitaph" placeholder="Enter epitaph" required>
+              <label for="epitaph">Epitaph</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="date" class="form-control datepicker" id="dateOfBirth" name="dateOfBirth" required>
+              <label for="dateOfBirth">Date of Birth</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="date" class="form-control datepicker" id="dateOfDeath" name="dateOfDeath" required>
+              <label for="dateOfDeath">Date of Death</label>
+            </div>
+            <div class="form-floating mb-3">
+              <textarea class="form-control" name="memorialDescription" placeholder="Enter memorial description" rows="3"></textarea>
+              <label for="memorialDescription">Memorial Description</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input class="form-control" type="file" id="formFile" name="file" required>
+              <label for="formFile" id="profilePicture" class="form-label">Profile Picture</label>
+            </div>
+            <div class="d-flex justify-content-center mt-4">
+              <button type="submit" class="btn btn-outline-primary">Create A Memorial</button>
+            </div>
+          </form>
+        </div>
+    </div>
+</main>
+{% block scripts %}
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const name = urlParams.get('name');
+  if (name) {
+    document.getElementById('name').value = name;
+  }
+
+  document.getElementById("dateOfBirth").value = "2000-01-01";
+  document.getElementById("dateOfDeath").value = new Date().toISOString().slice(0,10)
+</script>
+{% endblock %}
+{% endblock %}

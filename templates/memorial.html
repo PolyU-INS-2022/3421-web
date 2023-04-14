@@ -1,0 +1,182 @@
+{% extends "base/base.html" %}
+{% block css %}
+<link href="{{ url_for('static', filename='css/memorial/carousel.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/memorial/style.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+{% block main %}
+<main class="container">
+  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{{ url_for('static', filename='img/home1.jpg') }}" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/>
+        <div class="container">
+          <div class="carousel-caption text-start">
+            <h1>A place to hold your memories</h1>
+            <p>Create a personalized memorial and cherish the memories of your loved ones forever.</p>
+            <p><a class="btn btn-lg btn-light" href="/register">Sign up now</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="{{ url_for('static', filename='img/home2.jpg') }}" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/>
+        <div class="container">
+          <div class="carousel-caption">
+            <h1>Connect with others</h1>
+            <p>Find comfort and support from others who have experienced a similar loss.</p>
+            <p><a class="btn btn-lg btn-light" href="/features">Learn more</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="{{ url_for('static', filename='img/home3.jpg') }}" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/>
+        <div class="container">
+          <div class="carousel-caption text-end">
+            <h1>Share your memories</h1>
+            <p>Remember your loved ones by sharing your favorite memories and stories with family and friends.</p>
+            <p><a class="btn btn-lg btn-light" href="/create_memorial">Create a memorial</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  
+  <div class="row row-cols-1 row-cols-md-3 g-4 text-center">
+    <div class="col">
+      <div class="card h-100 card-upscale">
+        <div class="card-body">
+          <img src="{{ url_for('static', filename='img/home4.jpg') }}" class="card-img-top" alt="...">
+          <h5 class="card-title">RIP Jane Doe</h5>
+          <p class="card-text">Share memories and photos of Jane, a beloved mother, wife, and friend. This memorial is a place to celebrate her life and legacy.</p>
+          <a href="#" class="btn btn-outline-light">Commemorate &raquo;</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 card-upscale">
+        <div class="card-body">
+          <img src="{{ url_for('static', filename='img/home4.jpg') }}" class="card-img-top" alt="...">
+          <h5 class="card-title">Honoring John Smith</h5>
+          <p class="card-text">Honoring the life of John, a devoted husband, father, and grandfather. Share stories, condolences, and memories with his loved ones.</p>
+          <a href="#" class="btn btn-outline-light">Commemorate &raquo;</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 card-upscale">
+        <div class="card-body">
+          <img src="{{ url_for('static', filename='img/home4.jpg') }}" class="card-img-top" alt="...">
+          <h5 class="card-title">Remembering Sarah Lee</h5>
+          <p class="card-text">Join us in remembering Sarah, a dear friend, sister, and daughter. Share your favorite memories and photos in her honor.</p>
+          <a href="#" class="btn btn-outline-light">Commemorate &raquo;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="position-fixed bottom-0 end-0 p-3">
+    <div class="card" id="chatbox">
+      <div class="card-header bg-secondary text-white">
+        Support Chat
+        <button class="btn btn-outline-light btn-sm float-end" type="button" id="collapse-btn" data-bs-toggle="collapse" data-bs-target="#chatbox" aria-expanded="false" aria-controls="chatbox">
+          <i class="bi bi-chevron-down"></i>
+        </button>
+      </div>
+      <div class="card-body">
+        <p id="chat-text"></p>
+      </div>
+      <div class="card-footer text-muted d-flex justify-content-start align-items-center p-3">
+        <form method="POST">
+          <div class="input-group mb-0">
+            <input type="text" class="form-control" placeholder="Type message" aria-label="Recipient's username" aria-describedby="button-addon2" name="message"/>
+            <button class="btn btn-outline-light" type="submit" id="button-addon2" style="padding-top: .55rem;">
+              Ask Us
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <button class="btn btn-secondary position-fixed bottom-0 end-0 m-3" id="mail-icon">
+      <i class="bi bi-envelope"></i>
+    </button>
+  </div>
+
+  
+</main>
+{% block scripts %}
+<script>
+  // Define the text to be typed
+  var text = "What can I help you?";
+
+  // Define the delay between each character
+  var delay = 50;
+
+  // Get the chat text element
+  var chatText = document.getElementById("chat-text");
+
+  // Define the index of the character being typed
+  var index = 0;
+
+  // Start the typing animation
+  var intervalId = setInterval(function() {
+    // Add the next character to the chat text
+    chatText.innerHTML += text[index];
+
+    // Increment the index
+    index++;
+
+    // Check if all characters have been typed
+    if (index >= text.length) {
+      // Stop the typing animation
+      clearInterval(intervalId);
+    }
+  }, delay);
+
+  const mailIcon = document.getElementById("mail-icon");
+  const chatBox = document.getElementById("chatbox");
+  const collapseBtn = document.getElementById("collapse-btn");
+  
+  mailIcon.style.display = "none";
+  
+  collapseBtn.addEventListener("click", () => {
+    if (chatBox.style.display === "none") {
+      chatBox.style.display = "block";
+      mailIcon.style.display = "none";
+    } else {
+      chatBox.style.display = "none";
+      mailIcon.style.display = "block";
+    }
+  });
+  
+  mailIcon.addEventListener("click", () => {
+    if (chatBox.style.display === "none") {
+      chatBox.style.display = "block";
+      mailIcon.style.display = "none";
+    }
+  });
+
+  const chatForm = document.querySelector('#chatbox form');
+  chatForm.addEventListener('submit', (event) => {
+    event.preventDefault(); // Prevent the form from submitting normally
+    
+    // Show an alert message to let the user know the message was sent
+    alert('Thank you for your question. Please wait for a response via email.');
+    
+    // Clear the input field
+    chatForm.querySelector('input').value = '';
+  });
+</script>
+{% endblock %}
+{% endblock %}

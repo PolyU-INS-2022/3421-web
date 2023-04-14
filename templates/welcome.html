@@ -1,0 +1,38 @@
+{% extends "base/base.html" %}
+{% block css %}
+<link href="{{ url_for('static', filename='css/welcome/style.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+{% block main %}
+<main class="container">
+  <div class="card text-center">
+    <div class="card-body">
+      <h2 class="card-title">Create a Memorial Website</h2>
+      <p class="card-text">PRESERVE AND SHARE MEMORIES OF YOUR LOVED ONE</p>
+      <p class="card-text">I want to share memories of</p>
+      <form method="get" action="/memorial/create">
+        <div class="row align-items-center">
+            <div class="col-md-7">
+                <div class="form-floating">
+                  <input type="text" class="form-control"  name="name" id="name" placeholder="Enter name of deceased person">
+                  <label for="name">Name</label>
+                </div>
+            </div>
+            <div class="col-md-5 text-md-start text-center mt-3 mt-md-0">
+              <button type="submit" class="btn btn-primary">GET STARTED</button>
+            </div>
+        </div>
+    </form>
+    </div>
+  </div>
+</main>
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/script.css') }}"></script>
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const name = urlParams.get('name');
+  if (name) {
+    document.getElementById('name').value = name;
+  }
+</script>
+{% endblock %}
+{% endblock %}

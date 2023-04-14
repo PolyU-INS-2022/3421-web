@@ -1,0 +1,17 @@
+.col-md-7{
+    padding-left: 25%;
+}
+
+@media (max-width: 768px) {
+    .col-md-7 {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .col-md-7 {
+      padding-left: 25%;
+    }
+  }
+  

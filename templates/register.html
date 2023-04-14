@@ -1,0 +1,63 @@
+{% extends "base/base.html" %}
+{% block css %}
+<link href="{{ url_for('static', filename='css/register/style.css') }}" rel="stylesheet" type="text/css">
+<style>
+  .error {
+    color: red;
+  }
+</style>
+{% endblock %}
+{% block main %}
+<main class="container-fluid py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-4 col-md-6 col-sm-8">
+      <div class="card shadow-lg border-0 rounded-lg">
+        <div class="card-header">
+          <h3 class="text-center font-weight-light my-4">Create an Account</h3>
+        </div>
+        <div class="card-body">
+          <form method="post">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" name="username" placeholder="Enter username" required>
+              <label for="username">Username</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" name="password" placeholder="Enter password" required>
+              <label for="password">Password</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" name="confirm_password" placeholder="Confirm password" required>
+              <label for="confirmPassword">Confirm Password</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" name="email" placeholder="Enter email" required>
+              <label for="email">Email Address</label><br>
+              <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" value="" id="termsAndConditions" required>
+                <label class="form-check-label" for="termsAndConditions" required>
+                  I have read and agree to the <a href="#" class="text-decoration-none">Terms and Conditions</a>
+                </label>
+              </div>
+              <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-danger btn-lg">
+                  <span class="bi bi-person-plus-fill me-2"></span>Create Account
+                </button>
+              </div>
+
+              {% if errors|length > 0 %}
+              <div>
+                <ul class="error">
+                  {% for error in errors %}
+                  <li>{{ error }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+              {% endif %}
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

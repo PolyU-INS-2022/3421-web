@@ -1,0 +1,55 @@
+<header class="p-3 mb-3 border-bottom">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="../memorial" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
+          <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Brand Logo" width="50" height="50">
+        </a>
+        {% if not current_user.is_authenticated %}
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="../memorial" class="nav-link px-2 link-secondary">HOME</a></li>
+          <li><a href="../forums" class="nav-link px-2 link-body-emphasis">Forums</a></li>
+          <li><a href="../heaven" class="nav-link px-2 link-body-emphasis">Heaven</a></li>
+          <li><a href="../price" class="nav-link px-2 link-body-emphasis">Pricing</a></li>
+          <li><a href="../features" class="nav-link px-2 link-body-emphasis">Features</a></li>
+          <li><a href="../faq" class="nav-link px-2 link-body-emphasis">FAQs</a></li>
+        </ul>
+        {% else %}
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="../welcome" class="nav-link px-2 link-secondary">HOME</a></li>
+          <li><a href="../forums" class="nav-link px-2 link-body-emphasis">Forums</a></li>
+          <li><a href="../heaven" class="nav-link px-2 link-body-emphasis">Heaven</a></li>
+          <li><a href="../price" class="nav-link px-2 link-body-emphasis">Pricing</a></li>
+          <li><a href="../create_memorial" class="nav-link px-2 link-body-emphasis">Create Memorial</a></li>
+          <li><a href="../faq" class="nav-link px-2 link-body-emphasis">FAQs</a></li>
+        </ul>
+        {% endif %}
+        
+        {% if not current_user.is_authenticated %}
+        <ul class="nav col-12 col-lg-auto me-lg-3 mb-2 justify-content-center mb-md-0">
+          <li><a class="nav-link px-2 link-body-emphasis" href="../login">Login</a></li>
+          <li><a class="nav-link px-2 link-body-emphasis" href="../register">Register</a></li>
+        </ul>
+        {% else %}
+        <div class="dropdown text-end">
+          {{ current_user.username }}
+          <a class="bi bi-person-circle text-reset" data-bs-toggle="dropdown" aria-expanded="false"></a>
+          <a href="#" class="bi bi-caret-down-fill text-reset" id="triangle-icon" data-bs-toggle="dropdown" aria-expanded="false"></a>
+          <ul class="dropdown-menu text-small">
+            <li><a class="dropdown-item" href="#">Wang Dan</a></li>
+            <li><a class="dropdown-item" href="#">Setting</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/logout">Sign out</a></li>
+          </ul>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+</header>
+<script>
+  const triangleIcon = document.getElementById('triangle-icon');
+  triangleIcon.addEventListener('click', function() {
+    triangleIcon.classList.toggle('bi-caret-down-fill');
+    triangleIcon.classList.toggle('bi-caret-right-fill');
+  });
+</script>
+

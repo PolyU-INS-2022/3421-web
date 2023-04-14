@@ -1,0 +1,95 @@
+{% extends "base/base.html" %}
+{% block css %}
+<link href="{{ url_for('static', filename='css/faq/style.css') }}" rel="stylesheet" type="text/css" >
+{% endblock %}
+{% block main %}
+<main class="container py-5">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h1 class="fw-bold mb-4">Frequently Asked Questions</h1>
+
+
+          <div class="accordion" id="accordionExample">
+
+    
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  How do I create a memorial page?
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  To create a memorial page, simply sign up for an account and follow the step-by-step instructions on the website. You can customize the page with photos, stories, and memories of your loved one.
+                </div>
+              </div>
+            </div>
+
+   
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Can I invite others to contribute to the memorial page?
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  Yes, you can invite others to contribute to the memorial page. Simply share the page link with them and they can add their own photos, stories, and memories.
+                </div>
+              </div>
+            </div>
+
+    
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  Is the memorial page public or private?
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  By default, the memorial page is private and can only be accessed by those with the link. However, you can choose to make the page public if you wish.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                  Can I create multiple pages for the same person?
+                </button>
+              </h2>
+              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  A memorial website is created for one person, and multiple pages are not necessary.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFive">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                  Can I add music or videos to the memorial page?
+                </button>
+              </h2>
+              <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  No, you can't to add music or videos to the memorial page.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingSix">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                  Is the website secure and will my personal information be protected?
+                </button>
+              </h2>
+              <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  Yes, the website is designed to be secure and your personal information will be protected. We take the security of our users very seriously and have implemented measures to ensure that all data is encrypted and stored safely. Additionally, we do not share your personal information with third parties without your consent. If you have any concerns about the security of the website, please don't hesitate to reach out to our customer support team for more information.
+                </div>
+              </div>
+            </div>
+</main>
+{% endblock %}
+

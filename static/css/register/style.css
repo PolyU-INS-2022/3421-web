@@ -1,0 +1,7 @@
+.containerWrapper{ 
+    width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.containerWrapper h2 {text-align: center}
+.containerWrapper form .form-group span {color: red;}

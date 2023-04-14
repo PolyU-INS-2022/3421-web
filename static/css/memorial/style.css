@@ -1,0 +1,126 @@
+html {
+	padding:0;
+	margin:0;
+}
+body {
+	margin:0;
+	padding:0;
+	width:100%;
+}
+
+.card-upscale img {
+	transition: all 0.2s ease-in-out;
+  }
+  
+.card-upscale {
+	transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+    
+.card-upscale:hover,
+.card-upscale:focus {
+	transform: scale(1.05);
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Chatbox card style */
+  
+.chatbox {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	max-width: 400px;
+	height: 400px;
+	border-radius: 10px;
+	overflow: hidden;
+	transition: all 0.3s ease-in-out;
+  }
+
+.card-body p::after {
+	content: "|";
+	display: inline-block;
+	animation: typing 1s infinite;
+}
+
+.card-header {
+	background-color: #393e46;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px;
+	font-weight: 600;
+	font-size: 1.2rem;
+	border-radius: 10px 10px 0 0;
+	color: #fff;
+}
+  
+
+ 
+.card-footer {
+	background-color: #fff;
+	border-radius: 0 0 10px 10px;
+	padding: 15px;
+}
+  
+ 
+.input-group {
+	position: relative;
+}
+  
+.form-control {
+	border: none;
+	border-radius: 30px;
+	background-color: #f2f2f2;
+	box-shadow: none;
+	padding: 10px 20px;
+	height: 45px;
+ }
+  
+
+.btn-outline-light {
+	border-color: black;
+	border-radius: 30px;
+	color: black;
+	transition: all 0.3s ease-in-out;
+}
+  
+.btn-outline-light:hover {
+	background-color: #fff;
+	color: #393e46;
+}
+  
+
+.collapse-btn {
+	background-color: transparent;
+	border: none;
+	transition: all 0.3s ease-in-out;
+}
+  
+.collapse-btn:hover {
+	transform: scale(1.1);
+}
+  
+
+#mail-icon {
+	background-color: #393e46;
+	border-radius: 50%;
+	color: #fff;
+	transition: all 0.3s ease-in-out;
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+ }
+  
+#mail-icon:hover {
+	transform: scale(1.1);
+ }
+  
+@keyframes typing {
+	0% { opacity: 0; }
+	50% { opacity: 1; }
+	100% { opacity: 0; }
+}
+  
+
+
+  
