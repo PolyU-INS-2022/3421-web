@@ -1,5 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import Column, String, Integer, ForeignKey, Date, Time
+from sqlalchemy import Column, String, Integer, ForeignKey, Date, DateTime
+from datetime import datetime
 
 db = SQLAlchemy()
 
@@ -28,12 +29,9 @@ class Memorial(db.Model):
     image = Column("image", ForeignKey(Image.id), nullable=False)
 
 
-class Forum(db.Model):
+class Message(db.Model):
     id = Column(Integer, primary_key=True)
-    name = Column(String(100), nullable=False)
-    views = Column(Integer, default=0)
-    topic = Column(String(255), nullable=False)
-    categories = Column(String(255), nullable=False)
+    name = Column(String, nullable=False)
     content = Column(String(500))
-    created_at = Column(Time, nullable=False)
-    creator = Column(Integer, ForeignKey(User.id), nullable=False)
+    created_at = Column(DateTime, default=datetime.now(), nullable=False)
+    creator = Column("creator", ForeignKey(User.id), nullable=False)
