@@ -3,25 +3,15 @@
 <link href="{{ url_for('static', filename='css/heaven/style.css') }}" rel="stylesheet" type="text/css">
 {% endblock %}
 {% block main %}
-<main>
-    <div class="container">
-		<div class="heaven-animation"></div>
-		<h1 id="name"></h1>
-        {% for name in names %}
-            <p>{{ name }}</p>
-        {% endfor %}
-		<button onclick="goBack()">Go Back</button>
-	</div>
+<main id="main-content" class="d-flex justify-content-center align-items-center flex-column" style="height: 100vh; background-color: #000;">
+    <div id="end-credits">
+      {% for memorial in memorials %}
+      <div>{{ memorial.deceasedName }}</div>
+      <br>
+      {% endfor %}
+    </div>
 </main>
-<script>
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-const name = urlParams.get('name');
-document.getElementById('name').innerText = name;
-
-function goBack() {
-	window.history.back();
-}
-</script>
-
+{% block scripts %}
+<script src=" {{ url_for('static', filename='js/heaven/script.js') }} "></script>
+{% endblock %}
 {% endblock %}

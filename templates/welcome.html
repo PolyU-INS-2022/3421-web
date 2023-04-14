@@ -6,7 +6,7 @@
 <main class="container">
   <div class="card text-center">
     <div class="card-body">
-      <h2 class="card-title">Create a Memorial Website</h2>
+      <h2 class="card-title">Create a Memorial Page</h2>
       <p class="card-text">PRESERVE AND SHARE MEMORIES OF YOUR LOVED ONE</p>
       <p class="card-text">I want to share memories of</p>
       <form method="get" action="/memorial/create">
@@ -26,13 +26,6 @@
   </div>
 </main>
 {% block scripts %}
-<script src="{{ url_for('static', filename='js/script.css') }}"></script>
-<script>
-  const urlParams = new URLSearchParams(window.location.search);
-  const name = urlParams.get('name');
-  if (name) {
-    document.getElementById('name').value = name;
-  }
-</script>
+<script src="{{ url_for('static', filename='js/welcome/script.js') }}"></script>
 {% endblock %}
 {% endblock %}

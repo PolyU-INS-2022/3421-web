@@ -1,11 +1,6 @@
 {% extends "base/base.html" %}
 {% block css %}
 <link href="{{ url_for('static', filename='css/register/style.css') }}" rel="stylesheet" type="text/css">
-<style>
-  .error {
-    color: red;
-  }
-</style>
 {% endblock %}
 {% block main %}
 <main class="container-fluid py-5">
@@ -38,6 +33,9 @@
                 <label class="form-check-label" for="termsAndConditions" required>
                   I have read and agree to the <a href="#" class="text-decoration-none">Terms and Conditions</a>
                 </label>
+              </div>
+              <div class="text-center">
+                <p>Already have an account? <a href="../login">Log in</a></p>
               </div>
               <div class="d-grid gap-2">
                 <button type="submit" class="btn btn-danger btn-lg">
