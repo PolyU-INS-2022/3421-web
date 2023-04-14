@@ -1,15 +1,5 @@
-#Online Website
-https://3421.rhky.xyz/
+Flask 
+Flask_wtf
+Flask_login
+Flask_sqlalchemy
 
-
-#Local Host Installation Guide
-1.	Install at https://www.python.org/ 
-2.	Download our source code from attached files
-3.	Open it in source code folder at VS code
-4.	Open the command prompt (CTRL + SHIFT+`)
-5.	Typing pip install Flask 
-6.	Typing pip install Flask_wtf
-7.	Typing pip install Flask_login
-8.	Typing pip install Flask_sqlalchemy
-9.	Run the code by python app.py
-10.	Now you can see on your localhost website at http://127.0.0.1:5555 
