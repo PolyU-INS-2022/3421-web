@@ -1,27 +1,37 @@
-.container {
-	width: 100%;
-	height: 100vh;
-	overflow: hidden;
-	position: relative;
+#end-credits {
+  position: relative;
+  top: auto;
+  bottom: 0;
+  transform: translateY(100%);
+  width: 100%;
+  height: 100%;
+  font-size: 3rem;
+  line-height: 1.5;
+  color: #fff;
+  text-align: center;
+  animation: end-credits-scroll 20s linear infinite;
 }
 
-.heaven-animation {
-    width: 100%;
-    height: 100%;
-    background-image: url("{{ url_for('static', filename='img/heaven.jpg') }}");
-    background-size: cover;
-    animation: heaven-animation 10s infinite;
-}
-
-
-@keyframes heaven-animation {
+  #end-credits div {
+	display: inline-block;
+	margin: 0 1rem;
+	opacity: 0;
+	animation: end-credits-fadein 1s forwards;
+  }
+  
+  @keyframes end-credits-scroll {
 	0% {
-		transform: scale(1);
-	}
-	50% {
-		transform: scale(1.2);
+	  transform: translateY(100%);
 	}
 	100% {
-		transform: scale(1);
+	  transform: translateY(-100%);
 	}
-}
+  }
+  
+  @keyframes end-credits-fadein {
+	to {
+	  opacity: 1;
+	}
+  }
+  
+  

@@ -5,3 +5,7 @@
 }
 .containerWrapper h2 {text-align: center}
 .containerWrapper form .form-group span {color: red;}
+
+.error {
+    color: red;
+}
